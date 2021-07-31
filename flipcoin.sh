@@ -66,3 +66,21 @@ fi
 echo head occured ${array[1]}
 echo tails occured ${array[0]}
 
+if [ $(( ${array[0]}-${array[1]} )) -gt 0 -a $(( ${array[0]}-${array[1]} )) -lt 2 ] || [ $(( ${array[1]}-${array[0]} )) -gt 0 -a $(( ${array[1]}-${array[0]} )) -lt 2 ]
+then
+value=0
+
+while [ $value -eq 0 ]
+do
+random=$(( RANDOM%((1-0)+1)+0 ))
+array[$random]=$(( ${array[$random]}+1 ))
+if [ $(( ${array[0]}-${array[1]} )) -ge 2 ]
+then
+value=1
+fi
+done
+echo head occured ${array[1]}
+echo tails occured ${array[0]}
+
+fi
+
